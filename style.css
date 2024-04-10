@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(154, 249, 240);
+}
+
+h1 {
+  text-align: center;
+  margin: 8vw 0;
+}
+
+.piano {
+  display: flex;
+  justify-content: center;
+}
+
+.white {
+  height: 16vw;
+  width: 4vw;
+  background-color: white;
+  border:1px solid black;
+}
+
+.black {
+  height: 10vw;
+  width : 2.5vw;
+  background-color: black;
+  position: relative;
+  left: 3vw;
+}

@@ -31,3 +31,24 @@ function octave(octaveNB) {
 
 octave(2);
 
+
+
+navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
+
+function onMIDIMessage(event) {
+  let str = `MIDI message received at timestamp ${event.timeStamp}[${event.data.length} bytes]: `;
+  for (const character of event.data) {
+    str += `0x${character.toString(16)} `;
+  }
+  console.log(str);
+}
+
+function onMIDISuccess(midiAccess) {
+  midiAccess.inputs.forEach((entry) => {
+    entry.onmidimessage = onMIDIMessage;
+  });
+}
+
+function onMIDIFailure(msg) {
+  console.error(`Failed to get MIDI access - ${msg}`);
+}
